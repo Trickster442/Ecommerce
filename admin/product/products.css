@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333;
+  margin: 0;
+}
+
+form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius:30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -5%;
+}
+
+.top p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'><polygon points='0,0 14,0 7,8'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2rem;
+}
+
+.upload {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload:hover {
+  background-color: #0069d9;
+}
+
+@media (max-width: 768px) {
+  form {
+    padding: 1rem;
+  }
+
+  .top p {
+    font-size: 1.2rem;
+  }
+
+  label,
+  input[type="text"],
+  input[type="file"],
+  select {
+    padding: 0.3rem;
+    font-size: 1rem;
+  }
+
+
+  .upload {
+    padding: 0.3rem;
+    font-size: 1rem;
+  }
+}
