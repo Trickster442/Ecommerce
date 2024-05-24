@@ -23,7 +23,7 @@
         <h2 class="dashboard">Dashboard</h2>
     </div>
     <div class="secondary-nav">
-        <a href="products.php">Add Post</a>
+        <a href="product/products.php">Add Post</a>
     </div>
 </body>
 </html>
