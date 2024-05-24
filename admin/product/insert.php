@@ -28,3 +28,4 @@ if(isset($_POST['submit'])) {
     mysqli_query($conn, "INSERT INTO `product`(`product_name`, `price`, `product_image`, `stock`, `category_id`) VALUES ('$product_name','$product_price','$img_des','$product_stock', '$product_cat')");
 }
 
+

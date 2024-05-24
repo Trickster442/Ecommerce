@@ -13,17 +13,17 @@
                     </div>
                     <div class="product-name">
                         <label for="pname">Product Name:</label>
-                        <input type="text" id="pname" name="pname" placeholder="Enter Product Name"></div>
+                        <input type="text" id="pname" name="pname" placeholder="Enter Product Name" required></div>
                     </div>
 
                     <div class="product-price">
                         <label for="pprice">Product Price:</label>
-                        <input type="text" id="pprice" name="pprice" placeholder="Enter Product Price"></div>
+                        <input type="text" id="pprice" name="pprice" placeholder="Enter Product Price" required></div>
                     </div>
 
                     <div class="product-image">
                         <label for="pimage">Add Product Image:</label>
-                        <input type="file" id="pimage" name="pimage"></div>
+                        <input type="file" id="pimage" name="pimage" required></div>
                     </div>
 
                     <div class="product-stock">
@@ -33,7 +33,7 @@
 
                     <div class="product-category">
                         <label for="pcat">Select Product Category:</label>
-                        <select id="pcat" name="pcat">
+                        <select id="pcat" name="pcat" required>
                             <option selected>Select Category</option>
                             <option value="Laptop">Laptop</option>
                             <option value="Mobile">Mobile</option>
@@ -42,6 +42,42 @@
                     </div>
                     <button name="submit" type="submit" class="upload">Upload</button>
                 </form>
+<!-- fetch data -->
+<div class="table-section">
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Stock</th>
+        <th>Category</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+    <?php
+include 'config.php';
 
+$record = mysqli_query($conn, "SELECT p.*, c.category_name 
+                               FROM product p
+                               INNER JOIN category c ON p.category_id = c.id");
+
+while ($row = mysqli_fetch_array($record)) {
+    echo "
+        <tr>
+            <td>$row[id]</td>
+            <td>$row[product_name]</td>
+            <td>$row[price]</td>
+            <td><img src='$row[product_image]' height='50px' width='50px'></td>
+            <td>$row[stock]</td>
+            <td>$row[category_name]</td>
+            <td></td>
+        </tr>
+    ";
+}
+?>
+    </tbody>
+</table>
+</div>
 </body>
 </html>

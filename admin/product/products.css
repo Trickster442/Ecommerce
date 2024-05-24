@@ -1,27 +1,35 @@
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background-color: #333;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 form {
   background-color: #fff;
-  padding: 2rem;
-  border-radius:30px;
+  padding: 1.5rem;
+  border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 100%;
+  margin-top: 2%;
   max-width: 500px;
+  max-height: 70vh;
 }
 
 .top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -5%;
 }
 
 .top p {
@@ -38,18 +46,10 @@ label {
 }
 
 input[type="text"],
+input[type="file"],
 select {
   width: 100%;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-bottom: 1rem;
-}
-
-input[type="file"] {
-  width: 100%;
-  padding: 0.5rem;
+  padding: 0.3rem;
   font-size: 1.2rem;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -57,19 +57,19 @@ input[type="file"] {
 }
 
 select {
-  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'><polygon points='0,0 14,0 7,8'/></svg>");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1rem;
-  padding-right: 2rem;
+  padding-right: 1.5rem;
 }
 
 .upload {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.3rem;
   font-size: 1.2rem;
   background-color: #007bff;
   color: #fff;
@@ -84,7 +84,7 @@ select {
 
 @media (max-width: 768px) {
   form {
-    padding: 1rem;
+    padding: 0.8rem;
   }
 
   .top p {
@@ -99,9 +99,49 @@ select {
     font-size: 1rem;
   }
 
-
   .upload {
     padding: 0.3rem;
     font-size: 1rem;
+  }
+}
+
+/* Table section */
+.table-section {
+  margin-top: 2rem;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+table {
+  width: 80vw;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+/* Responsive CSS */
+@media (max-width: 768px) {
+  table,
+  th,
+  td {
+    font-size: 0.9rem;
   }
 }
