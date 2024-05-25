@@ -12,7 +12,11 @@ $A_password = $_POST['password'];
 
 $result = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$A_email' AND password = '$A_password' AND is_admin = 1");
 
+session_start();
+
 if (mysqli_num_rows($result)) {
+
+    $_SESSION['users'] = $A_email;
     echo "
         <script>
         alert('Login successfully');

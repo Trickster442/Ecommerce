@@ -7,14 +7,25 @@
     <link rel="stylesheet" href="isAdmin.css">
     <!-- font awesome cdn -->
 </head>
+<?php
+session_start();
+
+if(!$_SESSION['users']){
+header("location:form/login.php");
+}
+?>
 <body>
     <nav>
         <div class="Logo">
             Logo
         </div>
         <ul class="navigation-link">
-            <li><a href="#">Hello,admin</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#">Hello, <?php
+
+            echo $_SESSION['users'];
+            ?>
+            </a></li>
+            <li><a href="form/logout.php">Logout</a></li>
             <li><a href="#">User Panel</a></li>
         </ul>
     </nav>
