@@ -1,0 +1,106 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    height: 8vh;
+    border-bottom: grey 2px solid;
+}
+
+.logo {
+    color: #fff;
+    font-size: 32px;
+}
+
+.pointer {
+    display: flex;
+    margin-right: 20px;
+}
+
+.button {
+    display: flex;
+    list-style-type: none;
+}
+
+.button li {
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 3.5vh;
+}
+
+.button li:hover {
+    background-color: #555;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    color: #333;
+    width: 350px;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+.search-form input[type="submit"]{
+    padding: 9px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    width: 60px;
+
+}
+
+/* Add media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .pointer {
+        position: relative;
+    }
+
+    .button {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        display: none;
+    }
+
+    .button li {
+        width: 100%;
+    }
+
+    .button.show {
+        display: block;
+    }
+
+    /* Add hamburger menu */
+    .pointer::after {
+        content: "\2630";
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .pointer::after {
+            display: block;
+        }
+    }
+}
+
+
+
