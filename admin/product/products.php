@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="products.css">
     <title>Product Page</title>
 </head>
+<?php
+session_start();
+
+if(!$_SESSION['users']){
+header("location:../form/login.php");
+}
+?>
 <body>
                 <form action="insert.php" method="POST" enctype="multipart/form-data">
                     <div class="top">

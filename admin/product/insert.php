@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if(!$_SESSION['users']){
+header("location:../form/login.php");
+}
+?>
+
+<?php
 if(isset($_POST['submit'])) {
     include 'config.php';
 

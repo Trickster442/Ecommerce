@@ -11,7 +11,7 @@
 <header>
             <nav class="top">
                 <div class="logo">
-                   <a href="/users/frontend/index.html">
+                   <a href="#">
                     Logo
                    </a> 
                 </div>
@@ -19,15 +19,20 @@
                     <input type="text" placeholder="Search...">
                     <input type="submit" name="submit" value="submit">    
                 </form>
-                <div class="pointer">
-                    <ul class="button">
+                <div class="cart">
+
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
+                </div>
+                <div class="navigation-section">
+                    <ul class="navigation-button">
+                        <a href="#"><li><i class="fa-solid fa-user-shield"></i>Hello, |</li></a>
                         <li>
-                            <a><i class="fa-solid fa-right-to-bracket"></i></a>
+                            <a href="#">Login</a>
                         </li>
-                        <a><li><i class="fa-solid fa-circle-xmark"></i></li></a>
-                        <a><li><i class="fa-solid fa-cart-shopping"></i></li></a>
+                        <a href="#"><li>Admin</li></a>
                     </ul>
                 </div>
+                
             </nav>
         </div>
     </header>
