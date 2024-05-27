@@ -1,0 +1,155 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set body font and background color */
+body {
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Style form container */
+form {
+    background-color: #444444;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    margin-top: 2%;
+    max-width: 500px;
+}
+
+/* Style form header */
+.top {
+    color: #cccccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.top p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #cccccc;
+  }
+
+  label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #cccccc;
+  }
+/* Style form input fields */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    background-color: #444444;
+    color: #cccccc;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'><polygon points='0,0 14,0 7,8'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 1.5rem;
+  }
+  .upload {
+    width: 100%;
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    background-color: #cacac6;
+    color: #444444;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .upload:hover {
+    background-color: #555555;
+      color: aquamarine;
+  }
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+    form {
+      padding: 0.8rem;
+    }
+  
+    .top p {
+      font-size: 1.2rem;
+    }
+  
+    label,
+    input[type="text"],
+    input[type="file"],
+    select {
+      padding: 0.3rem;
+      font-size: 1rem;
+    }
+  
+    .upload {
+      padding: 0.3rem;
+      font-size: 1rem;
+    }
+  }
+  
+
+  
+/* Table section */
+.table-section {
+  margin-top: 2rem;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+table {
+  width: 70vw;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #444444;
+  font-weight: bold;
+}
+
+tr{
+  background-color: #252222;
+  color: #cccccc;
+}
+
+tr:hover {
+  background-color: #ddd;
+  color: #252222;
+}
+
+/* Responsive CSS */
+@media (max-width: 768px) {
+  table,
+  th,
+  td {
+    font-size: 0.9rem;
+  }
+}

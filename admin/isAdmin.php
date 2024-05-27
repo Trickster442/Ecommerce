@@ -35,6 +35,7 @@ header("location:form/login.php");
     </div>
     <div class="secondary-nav">
         <a href="product/products.php">Add Post</a>
+        <a href="category/categories.php">Add Category</a>
     </div>
 </body>
 </html>
