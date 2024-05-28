@@ -44,15 +44,6 @@ if (!$_SESSION['users']) {
         </div>
         </div>
 
-        <!-- <div class="product-category">
-                        <label for="pcat">Select Product Category:</label>
-                        <select id="pcat" name="pcat" required>
-                            <option selected>Select Category</option>
-                            <option value="Laptop">Laptop</option>
-                            <option value="Mobile">Mobile</option>
-                            <option value="PC">PC</option>
-                        </select>
-                    </div> -->
                     <div class="product-category">
     <label for="pcat">Select Product Category:</label>
     <select id="pcat" name="pcat" required>

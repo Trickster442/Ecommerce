@@ -36,5 +36,22 @@
             </nav>
         </div>
     </header>
+
+    <div class="nav-category">
+        <ul class="category-types">
+
+        
+    <?php
+        include "config.php";
+        $sql = "SELECT * FROM `category` WHERE status = 'active'";
+        $result = $conn->query($sql);
+        while ($row = $result->fetch_assoc()) {
+            echo "<li value='{$row['category_name']}'>{$row['category_name']}</>";
+        }
+        ?>
+
+        </ul>
+    </div>
 </body>
 </html>
+
