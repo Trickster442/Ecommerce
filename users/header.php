@@ -29,7 +29,7 @@
                         <li>
                             <a href="#">Login</a>
                         </li>
-                        <a href="#"><li>Admin</li></a>
+                        <a href="../admin/isAdmin.php"><li>Admin</li></a>
                     </ul>
                 </div>
                 
