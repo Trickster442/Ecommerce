@@ -159,52 +159,72 @@
 
   /* Category navigation */
   .nav-category {
-    background-color: #333; /* dark gray background */
+    background-color: #f7f7f7; /* light gray background */
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .category-types {
+    
+}
+
+.category-types {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2em;
-  }
-  
-  .category-types li {
-    background-color: #444; /* slightly lighter gray background */
-    color: #fff; /* white text color */
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin: 10px;
-    cursor: pointer;
-  }
-  
-  .category-types li:hover {
-    background-color: #555; /* slightly darker gray background on hover */
-  }
-  
+}
 
-  .category-types li {
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-/* responsive design */
-  @media screen and (max-width: 768px) {
-    .category-types li {
-      flex-basis: 40%; /* make each item take up 40% of the width */
+.category-types li {
+    margin: 10px;
+}
+
+.category-types a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* green background */
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.category-types a:hover {
+    background-color: #3e8e41; /* darker green background on hover */
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 768px) {
+   .nav-category {
+        flex-direction: column;
     }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .category-types li {
-      flex-basis: 60%; /* make each item take up 60% of the width on smaller screens */
+   .category-types {
+        flex-direction: column;
     }
-  }  
+   .category-types li {
+        margin: 10px 0;
+    }
+   .category-types a {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+   .nav-category {
+        padding: 5px;
+    }
+   .category-types {
+        flex-direction: column;
+    }
+   .category-types li {
+        margin: 5px 0;
+    }
+   .category-types a {
+        padding: 5px;
+        font-size: 14px;
+    }
+}

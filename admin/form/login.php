@@ -12,7 +12,7 @@
                         <h1>Login</h1>
                     </div>
 
-                    <div class="email">
+                    <div class="email"> 
                         <label for="email">Email:</label>
                         <input type="text" id="email" name="email" placeholder="Enter email" required></div>
                     </div>

@@ -11,7 +11,7 @@
 <header>
             <nav class="top">
                 <div class="logo">
-                   <a href="#">
+                   <a href="index.php">
                     Logo
                    </a> 
                 </div>
@@ -46,7 +46,7 @@
         $sql = "SELECT * FROM `category` WHERE status = 'active'";
         $result = $conn->query($sql);
         while ($row = $result->fetch_assoc()) {
-            echo "<li value='{$row['category_name']}'>{$row['category_name']}</>";
+            echo "<li value='{$row['category_name']}'><a href='{$row['category_name']}.php'>{$row['category_name']}</a></>";
         }
         ?>
 
