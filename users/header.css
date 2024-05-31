@@ -203,6 +203,7 @@
     }
    .category-types {
         flex-direction: column;
+        gap: 1em;
     }
    .category-types li {
         margin: 10px 0;
@@ -219,6 +220,7 @@
     }
    .category-types {
         flex-direction: column;
+        gap: 1em;
     }
    .category-types li {
         margin: 5px 0;
