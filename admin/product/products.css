@@ -132,6 +132,7 @@ td {
 th {
   background-color: #444444;
   font-weight: bold;
+  font-size: large;
 }
 
 tr{
@@ -150,5 +151,50 @@ tr:hover {
   th,
   td {
     font-size: 0.9rem;
+  }
+}
+
+
+.delete {
+  background-color: #FF0000; /* Red background color */
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2); /* Shadow effect */
+
+}
+.delete a{
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.update {
+  background-color: #ffa319; /* Blue background color */
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2); /* Shadow effect */
+}
+.update a{
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+}
+.delete:hover,.update:hover {
+  background-color: rgb(24, 128, 50); /* Light gray background color on hover */
+}
+
+.delete:active,.update:active {
+  background-color: #AAAAAA; /* Dark gray background color on active */
+  box-shadow: 0px 0px 2px rgba(0,0,0,0.1); /* Less shadow on active */
+}
+
+@media (max-width: 600px) {
+ .delete,.update {
+    padding: 10px 10px;
+    font-size: 14px;
   }
 }

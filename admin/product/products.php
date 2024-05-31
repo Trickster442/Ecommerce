@@ -71,6 +71,7 @@ if (!$_SESSION["users"]) {
                 <th>Stock</th>
                 <th>Category</th>
                 <th>Delete</th>
+                <th>Update</th>
             </thead>
             <tbody>
                 <?php
@@ -89,7 +90,16 @@ if (!$_SESSION["users"]) {
             <td><img src='$row[product_image]' height='50px' width='50px'></td>
             <td>$row[stock]</td>
             <td>$row[category_name]</td>
-            <td></td>
+            <td>
+                    <div class='delete'>
+                <a href='#'>Delete</a>
+                </div>
+            </td>
+            <td>
+            <div class='update'>
+                <a href='update.php ? id=$row[id]'>Update</a>
+                </div>
+            </td>
         </tr>
     ";
                 }
