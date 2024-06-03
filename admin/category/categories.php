@@ -36,7 +36,7 @@ header("location:../form/login.php");
 <div class="table-section">
 <table>
     <thead>
-        <th>ID</th>
+        <th>S.N</th>
         <th>Category Name</th>
         <th>Status</th>
         <th>Delete</th>
@@ -46,16 +46,17 @@ header("location:../form/login.php");
 include '../product/config.php';
 
 $record = mysqli_query($conn, "SELECT * FROM `category`");
-
+$count = 1;
 while ($row = mysqli_fetch_array($record)) {
     echo "
         <tr>
-            <td>$row[id]</td>
+            <td>{$count}</td>
             <td>$row[category_name]</td>
             <td>$row[status]</td>
             <td></td>
         </tr>
     ";
+    $count++;
 }
 ?>
     </tbody>

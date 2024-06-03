@@ -44,7 +44,9 @@ if (!$_SESSION["users"]) {
         </div>
         </div>
 
-                    <div class="product-category">
+                    
+        
+        <div class="product-category">
     <label for="pcat">Select Product Category:</label>
     <select id="pcat" name="pcat" required>
         <option selected>Select Category</option>
@@ -64,7 +66,7 @@ if (!$_SESSION["users"]) {
     <div class="table-section">
         <table>
             <thead>
-                <th>ID</th>
+                <th>S.N.</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Image</th>
@@ -80,28 +82,29 @@ if (!$_SESSION["users"]) {
                 $record = mysqli_query($conn, "SELECT p.*, c.category_name 
                                FROM product p
                                INNER JOIN category c ON p.category_id = c.id");
-
+                $count = 1;
                 while ($row = mysqli_fetch_array($record)) {
                     echo "
         <tr>
-            <td>$row[id]</td>
+            <td>{$count}</td>
             <td>$row[product_name]</td>
             <td>$row[price]</td>
             <td><img src='$row[product_image]' height='50px' width='50px'></td>
             <td>$row[stock]</td>
             <td>$row[category_name]</td>
             <td>
-                    <div class='delete'>
-                <a href='#'>Delete</a>
+            <div class='delete'>
+                <a href='delete.php?id=" . $row['id'] . "'>Delete</a>
                 </div>
             </td>
             <td>
             <div class='update'>
-                <a href='update.php ? id=$row[id]'>Update</a>
-                </div>
+                <a href='update.php?id=" . $row['id'] . "'>Update</a>
+            </div>
             </td>
         </tr>
     ";
+    $count += 1;
                 }
                 ?>
             </tbody>
