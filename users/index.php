@@ -27,17 +27,19 @@ $record = mysqli_query($conn, " Select * FROM `product` ");
 
     echo "
     <div class='col-md-6 col-lg-4 m-auto mb-3 '>
+    <form action='insertcart.php' method='POST'>
     <div class='card m-auto' style='width: 18rem;'>
   <img src='../admin/product/$row[product_image]' class='card-img-top' alt='....'>
   <div class='card-body text-center '>
     <h5 class='card-title text-center fs-4 fw-bold'>$row[product_name]</h5>
     <p class='card-text text-center fs-4 fw-bold'>RS: $row[price]</p>
-    <input type='number' value= 'min='1' max = '20'' placeholder='Quantity'><br><br>
-
-    <input type='submit' class='btn btn-danger text-white  w-100' value = 'Add To Cart'>
+    <input type = 'hidden' name='pname' value='$row[product_name]'>
+    <input type='hidden' name='pprice' value='$row[price]'>
+    <input type='number' name= 'product_quantity' value= 'min='1' max = '20'' placeholder='Quantity'><br><br>
+    <input type='submit' name='addCart' class='btn btn-danger text-white  w-100' value = 'Add To Cart'>
   </div>
 </div>
-
+</form>
 </div>" ;
  }
  ?>
