@@ -8,7 +8,52 @@ if (!$_SESSION["users"]) {
 
 <?php
 include 'config.php';
+?>
+<?php
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $product_name = $_POST['pname'];
+    $product_price = $_POST['pprice'];
+    $product_stock = $_POST['pstock'];
+    $product_image = $_FILES['pimage'];
+    $image_loc = $_FILES['pimage']['tmp_name'];
+    $image_name = $_FILES['pimage']['name'];
+    $product_cat_name = $_POST['pcat'];
 
+    // Get the category ID corresponding to the selected category name
+    $query = "SELECT id FROM category WHERE category_name = '$product_cat_name'";
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+        echo "Error: ". mysqli_error($conn);
+        exit;
+    }
+    if ($row = mysqli_fetch_assoc($result)) {
+        $product_cat = $row['id'];
+        echo $product_cat;
+    } else {
+        // Category not found, handle the error or provide a default category ID
+        $product_cat = 1; // Default category ID (you can change this to your specific requirement)
+    }
+
+    // Upload image and insert product
+    $img_des = "uploadImage/". $image_name;
+    if (!move_uploaded_file($image_loc, "uploadImage/". $image_name)) {
+        echo "Error: Unable to upload image";
+        exit;
+    }
+
+    $update_query = " UPDATE `product` SET `product_name`='$product_name',`price`='$product_price',`stock`='$product_stock',`category_id`='$product_cat',`product_image`='$img_des' WHERE id = $id ";
+    echo $update_query ;
+    if (!mysqli_query($conn, $update_query)) {
+        echo "Error: ". mysqli_error($conn);
+        exit;
+    }
+
+    header("location:products.php");
+    exit;
+}
+?>
+<?php
 if (isset($_GET['id'])) {
     $id = (int) $_GET['id']; // cast to integer to prevent SQL injection
     $sql = "SELECT * FROM `product` WHERE id = $id";
@@ -82,46 +127,5 @@ if (isset($_GET['id'])) {
     <button name="update" type="submit" class="upload">Update</button>
 </form>
 
-<?php
-if (isset($_POST['update'])) {
-    $product_name = $_POST['pname'];
-    $product_price = $_POST['pprice'];
-    $product_stock = $_POST['pstock'];
-    $product_image = $_FILES['pimage'];
-    $image_loc = $_FILES['pimage']['tmp_name'];
-    $image_name = $_FILES['pimage']['name'];
-    $product_cat_name = $_POST['pcat'];
-
-    // Get the category ID corresponding to the selected category name
-    $query = "SELECT id FROM category WHERE category_name = '$product_cat_name'";
-    $result = mysqli_query($conn, $query);
-    if (!$result) {
-        echo "Error: ". mysqli_error($conn);
-        exit;
-    }
-    if ($row = mysqli_fetch_assoc($result)) {
-        $product_cat = $row['id'];
-    } else {
-        // Category not found, handle the error or provide a default category ID
-        $product_cat = 1; // Default category ID (you can change this to your specific requirement)
-    }
-
-    // Upload image and insert product
-    $img_des = "uploadImage/". $image_name;
-    if (!move_uploaded_file($image_loc, "uploadImage/". $image_name)) {
-        echo "Error: Unable to upload image";
-        exit;
-    }
-
-    $update_query = " UPDATE `product` SET `product_name`='$product_name',`price`='$product_price',`stock`='$product_stock',`category_id`='$product_cat',`product_image`='$img_des' WHERE id = $id ";
-    if (!mysqli_query($conn, $update_query)) {
-        echo "Error: ". mysqli_error($conn);
-        exit;
-    }
-
-    header("location:product.php");
-    exit;
-}
-?>
 </body>
 </html>
