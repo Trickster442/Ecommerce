@@ -36,20 +36,26 @@ include("header.php");
                         <?php
                         session_start();
                         $total = 0;
+                        $ttotal = 0;
                         if (isset($_SESSION['cart'])) {
                             
                             foreach ($_SESSION['cart'] as $key => $value) {
 
                                 $total = (double) $value['product_price'] * (double) $value['product_quantity'];
-                               echo" <tr>
+                                $ttotal += $total; 
+                               echo" 
+                               <form action = 'insertcart.php' method = 'POST'>
+                               <tr>
                                <td>{$key}</td>
-                               <td>$value[product_name]</td>
-                               <td>$value[product_price]</td>
-                               <td>$value[product_quantity]</td>
+                               <td><input type='hidden' name = 'pname' value='$value[product_name]'></td>
+                               <td><input type='hidden' name = 'pprice' value='$value[product_price]'></td>
+                               <td><input type='text' name = 'product_quantity' value='$value[product_quantity]'></td>
                                <td>$total</td>
-                               <td><button class='btn btn-success'>Update</button></td>
-                               <td><button class='btn btn-danger'>Delete</button></td>
-                                </tr>
+                               <td><button name='update' class='btn btn-success'>Update</button></td>
+                               <td><button name= 'delete' class='btn btn-danger'>Delete</button></td>
+                               <td><input type = 'hidden' name='item' value = '$value[product_name]'></td> 
+                               </tr>
+                            </form>
                                 ";
                                 
                         }
@@ -59,6 +65,12 @@ include("header.php");
                 </table>
             </div>
         </div>
+    </div>
+    <div class="lg-3 text-center">
+        <H3>Total</H3>
+        <h1 class="bg-success text-black">
+            <?php echo number_format($ttotal,2) ?>
+        </h1>
     </div>
 </body>
 </html>

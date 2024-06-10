@@ -64,8 +64,6 @@ if (isset($_GET['id'])) {
         <input type="text" id="cname" value="<?php echo $category['category_name']?>" name="cname" placeholder="Enter Category Name" required>
     </div>
 
-
-
     <div class="status">
     <label for="status">Select Category Status:</label>
                         <select id="status" name="status" required>

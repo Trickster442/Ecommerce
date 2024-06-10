@@ -21,7 +21,7 @@
                 </form>
                 <div class="cart">
 
-                    <a href="#"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
+                    <a href="viewCart.php"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
                 </div>
                 <div class="navigation-section">
                     <ul class="navigation-button">
