@@ -40,6 +40,7 @@ header("location:../form/login.php");
         <th>Category Name</th>
         <th>Status</th>
         <th>Delete</th>
+        <th>Update</th>
     </thead>
     <tbody>
     <?php
@@ -53,7 +54,16 @@ while ($row = mysqli_fetch_array($record)) {
             <td>{$count}</td>
             <td>$row[category_name]</td>
             <td>$row[status]</td>
-            <td></td>
+            <td>
+                <div class='delete'>
+                    <a href='delete.php?id=" . $row['id'] . "'>Delete</a>
+                </div>
+            </td>
+            <td>
+            <div class='update'>
+                <a href='update.php?id=" . $row['id'] . "'>Update</a>
+            </div>
+            </td>
         </tr>
     ";
     $count++;
