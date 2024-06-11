@@ -162,7 +162,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
 }
 
 .category-types {

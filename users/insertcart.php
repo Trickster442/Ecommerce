@@ -47,11 +47,14 @@ if(isset($_POST['update'])){
 
     foreach ($_SESSION['cart'] as $key => $value) {
         if($value['product_name'] === $item){
-            $_SESSION['cart'][$key] = array('product_name' => $product_name, 'product_price' => $product_price, 'product_quantity' => $product_quantity);
-            header('location:viewCart.php');
+            $_SESSION['cart'][$key] = array(
+                'product_name' => $product_name,
+                'product_price' => $product_price,
+                'product_quantity' => $product_quantity
+            );
+            header('Location: viewCart.php');
             exit(); // add this to prevent the script from continuing to run after the redirect
-             // add this to stop the loop after the update
-        }
+            }
     }
 }
 

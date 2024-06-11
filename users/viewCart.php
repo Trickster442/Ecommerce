@@ -37,18 +37,20 @@ include("header.php");
                         session_start();
                         $total = 0;
                         $ttotal = 0;
+                        $i = 0;
                         if (isset($_SESSION['cart'])) {
                             
                             foreach ($_SESSION['cart'] as $key => $value) {
 
                                 $total = (double) $value['product_price'] * (double) $value['product_quantity'];
                                 $ttotal += $total; 
+                                $i = $key+1;
                                echo" 
                                <form action = 'insertcart.php' method = 'POST'>
                                <tr>
-                               <td>{$key}</td>
-                               <td><input type='hidden' name = 'pname' value='$value[product_name]'></td>
-                               <td><input type='hidden' name = 'pprice' value='$value[product_price]'></td>
+                               <td>{$i}</td>
+                               <td><input type='text' name = 'pname' value='$value[product_name]' readonly></td>
+                               <td><input type='text' name = 'pprice' value='$value[product_price]' readonly></td>
                                <td><input type='text' name = 'product_quantity' value='$value[product_quantity]'></td>
                                <td>$total</td>
                                <td><button name='update' class='btn btn-success'>Update</button></td>
