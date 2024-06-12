@@ -27,7 +27,7 @@
                     <ul class="navigation-button">
                         <a href="#"><li><i class="fa-solid fa-user-shield"></i>Hello, |</li></a>
                         <li>
-                            <a href="#">Login</a>
+                            <a href="login/register.php">Login</a>
                         </li>
                         <a href="../admin/isAdmin.php"><li>Admin</li></a>
                     </ul>
