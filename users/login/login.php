@@ -13,8 +13,8 @@
                 <p class="text-warning fs-2 fw-bold my-3 text-center">User Sign IN</p>
                 <form action="login1.php" method="POST">
                     <div class="mb-3">
-                        <label for="email">Email:</label>
-                        <input name='email' type="text" placeholder="Enter email:" class="form-control" id="email">
+                        <label for="name">UserName:</label>
+                        <input name='name' type="text" placeholder="Enter your name" class="form-control" id="name">
                     </div>
                     <div class="mb-3">
                         <label for="password">Password</label>

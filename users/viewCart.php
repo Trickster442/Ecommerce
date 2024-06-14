@@ -34,7 +34,7 @@ include("header.php");
                     </thead>
                     <tbody>
                         <?php
-                        session_start();
+                      
                         $total = 0;
                         $ttotal = 0;
                         $i = 0;

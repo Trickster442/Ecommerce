@@ -47,5 +47,8 @@ $record = mysqli_query($conn, " Select * FROM `product` ");
 </div>
 </div>
 </div>
+<?php
+include('footer.php');
+?>
 </body>
 </html>

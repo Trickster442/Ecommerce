@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+if (isset($_SESSION['user'])){
 if(isset($_POST['addCart'])){
     $product_name = $_POST['pname'];
     $product_price = $_POST['pprice'];
@@ -57,6 +57,8 @@ if(isset($_POST['update'])){
             }
     }
 }
+}
 
-
-header('location:viewCart.php');
+else{
+    header('location:login/login.php');
+}

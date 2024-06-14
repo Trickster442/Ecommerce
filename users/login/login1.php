@@ -2,13 +2,21 @@
 include("config.php");
 
 
-$email = $_POST['email'];
+$name = $_POST['name'];
 $password = $_POST['password'];
 
+$result = mysqli_query($conn," SELECT * FROM `users` WHERE (`name` = '$name' OR `email` = '$name' ) AND `password` = '$password' AND `is_admin` is NULL");
 
-$result = mysqli_query($conn," SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password' AND `is_admin` is NULL");
-
+if ($row = mysqli_fetch_assoc($result)) {
+    $username = $row['name']; // Assuming 'name' is the column name in the database
+} else {
+    echo "No user found with the provided credentials.";
+}
+session_start();
 if(mysqli_num_rows($result)){
+
+    $_SESSION['user'] = $username;
+    
     echo"
             <script>
                 alert('Login Successfully');

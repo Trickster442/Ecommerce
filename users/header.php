@@ -8,6 +8,7 @@
     <title>User</title>
 </head>
 <body>
+
 <header>
             <nav class="top">
                 <div class="logo">
@@ -25,10 +26,30 @@
                 </div>
                 <div class="navigation-section">
                     <ul class="navigation-button">
-                        <a href="#"><li><i class="fa-solid fa-user-shield"></i>Hello, |</li></a>
-                        <li>
-                            <a href="login/register.php">Login</a>
-                        </li>
+                        <a href="#"><li><i class="fa-solid fa-user-shield"></i>Hello, 
+                        <?php
+                           session_start();
+
+                           if (isset($_SESSION['user'])){
+                            echo $_SESSION["user"];
+                            echo" | ";
+                            echo"
+                            <li>
+                            <a href='login/logout.php'>Logout</a>
+                            </li>
+                            ";
+                           } else{
+                            echo"
+                            <li>
+                            <a href='login/register.php'>Login</a>
+                            </li>
+                            ";
+                           }
+                            
+                        ?>
+                        
+                        </li></a>
+                        
                         <a href="../admin/isAdmin.php"><li>Admin</li></a>
                     </ul>
                 </div>
