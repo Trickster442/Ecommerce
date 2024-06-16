@@ -14,7 +14,7 @@ include("header.php");
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center bg-light mb-5 rounded">
-                <h1 class="text-danger font-weight-700">My Cart</h1>
+                <h1 class="text-danger font-weight-700">Orders</h1>
             </div>
         </div>
     </div>
@@ -23,39 +23,24 @@ include("header.php");
         <div class="row justify-content-around">
             <div class="col-sm-12 col-md-6 col-lg-9">
                 <table class="table table-bordered text-center ">
-                    <thead class="bg-danger text-danger fs-5">
-                        <th>S.N</th>
-                        <th>Product Name</th>
-                        <th>Product Price</th>
-                        <th>Product Quantity</th>
-                        <th>Total Price</th>
-                        <th>Update</th>
-                        <th>Delete</th>
-                        <th>Order</th>
-                    </thead>
                     <tbody>
                         <?php
-                        
                         $total = 0;
                         $ttotal = 0;
                         $i = 0;
-                        if (isset($_SESSION['cart'])) {
+                        if (isset($_SESSION['order'])) {
                             
-                            foreach ($_SESSION['cart'] as $key => $value) {
+                            foreach ($_SESSION['order'] as $key => $value) {
                                 $total = (double) $value['product_price'] * (double)$value['product_quantity'] ;
                                 $ttotal += $total; 
                                 $i = $key+1;
                                echo" 
-                               <form action = 'insertcart.php' method = 'POST'>
+                               <form action = 'insertOrder.php' method = 'POST'>
                                <tr>
-                               <td>{$i}</td>
                                <td><input type='text' name = 'pname' value='$value[product_name]' readonly></td>
                                <td><input type='text' name = 'pprice' value='$value[product_price]' readonly></td>
                                <td><input type='text' name = 'product_quantity' value='$value[product_quantity]'></td>
                                <td>$total</td>
-                               <td><button name='update' class='btn btn-warning'>Update</button></td>
-                               <td><button name= 'delete' class='btn btn-danger'>Delete</button></td>
-                               <td><input type='submit' name='addOrder' class='btn btn-success text-white  w-100' value = 'Order'>td>
                                <input type ='hidden' name='item' value = '$value[product_name]'> 
                                 
                                </tr>

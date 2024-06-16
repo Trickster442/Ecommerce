@@ -21,7 +21,6 @@
                     <input type="submit" name="submit" value="submit">    
                 </form>
                 <div class="cart">
-
                     <a href="viewCart.php"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
                 </div>
                 <div class="navigation-section">
@@ -37,20 +36,24 @@
                             <li>
                             <a href='login/logout.php'>Logout</a>
                             </li>
+                            <li>
+                            <a href='viewOrder.php'>Order</a>
+                            </li>
                             ";
                            } else{
                             echo"
                             <li>
                             <a href='login/register.php'>Login</a>
                             </li>
+                            <li>
+                            <a href='../admin/isAdmin.php'>Admin</a>
+                            </li>
                             ";
                            }
                             
                         ?>
                         
-                        </li></a>
                         
-                        <a href="../admin/isAdmin.php"><li>Admin</li></a>
                     </ul>
                 </div>
                 
