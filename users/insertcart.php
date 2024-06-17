@@ -1,13 +1,14 @@
 <?php
 include('config.php');
-session_start();
+session_start(); 
+
 if (isset($_SESSION['user'])){
-    // $user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['user_id'];
     if(isset($_POST['addCart'])){
         $product_name = $_POST['pname'];
         $product_price = $_POST['pprice'];
         $product_quantity = $_POST['product_quantity'];
-
+       
         if(!isset($_SESSION['cart'])){
             $_SESSION['cart'] = array();
         }
@@ -23,8 +24,17 @@ if (isset($_SESSION['user'])){
         }
         else{
             $_SESSION['cart'][] = array('product_name' => $product_name, 'product_price' => $product_price, 'product_quantity' => $product_quantity);
-            // $query = "INSERT INTO cart (user_id, product_name, product_price, product_quantity) VALUES ('$user_id', '$product_name', '$product_price', '$product_quantity')";
-            // mysqli_query($conn, $query);
+            $total  = (double) $product_price * (double) $product_quantity;
+            $query = "SELECT id FROM product WHERE `product_name` = '$product_name'";
+            $result = mysqli_query($conn, $query);
+            if($row = mysqli_fetch_assoc($result)) {
+        $product_id = $row['id']; // Assign the fetched category ID
+    }       else {
+        // Category not found, handle the error or provide a default category ID
+        $product_cat = 1; // Default category ID (you can change this to your specific requirement)
+    }
+            $query = " INSERT INTO cart (user_id, product_id, total_price, `quantity`) VALUES ('$user_id', '$product_id', '$total', '$product_quantity')";
+            mysqli_query($conn, $query);
             header('location:viewCart.php');
             exit(); // add this to prevent the script from continuing to run after the redirect
         }
@@ -70,7 +80,7 @@ if (isset($_SESSION['user'])){
         $product_price = $_POST['pprice'];
         $product_quantity = $_POST['product_quantity'];
         $item = $_POST['item'];
-        $total = $product_price * $product_quantity;
+        $total = (double) $product_price * (double) $product_quantity;
         foreach ($_SESSION['cart'] as $key => $value) {
             if($value['product_name'] === $item){
                 $_SESSION['cart'][$key] = array(
@@ -84,10 +94,8 @@ if (isset($_SESSION['user'])){
     
     }
 }
-
+}
 else{
     header('location:login/login.php');
 }
 
-
-}

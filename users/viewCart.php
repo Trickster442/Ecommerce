@@ -34,7 +34,53 @@ include("header.php");
                         <th>Order</th>
                     </thead>
                     <tbody>
-                        <?php
+                    <?php
+    if (isset($_SESSION['user'])) {
+        $user_id = $_SESSION['user_id'];
+        // Retrieve cart data for this user with product details
+        $query = "SELECT c.product_id, p.product_name, p.price, c.quantity 
+                  FROM cart c 
+                  INNER JOIN product p ON c.product_id = p.id 
+                  WHERE c.user_id = $user_id";
+        $result = mysqli_query($conn, $query);
+
+        // Display cart data
+        $ttotal = 0; // Total variable initialization
+        $i = 0; // Counter initialization
+        while ($row = mysqli_fetch_assoc($result)) {
+            $i++; // Increment counter
+            $product_id = $row['product_id'];
+            $product_name = $row['product_name'];
+            $product_price = $row['price'];
+            $product_quantity = $row['quantity'];
+            $total = (double)$product_price * (double)$product_quantity;
+            $ttotal += $total; // Accumulate total
+
+            // Displaying the cart items in a form for update/delete
+            echo "
+                <form action='insertcart.php' method='POST'>
+                    <tr>
+                        <td>{$i}</td>
+                        <td><input type='text' name='pname' value='{$product_name}' readonly></td>
+                        <td><input type='text' name='pprice' value='{$product_price}' readonly></td>
+                        <td><input type='text' name='product_quantity' value='{$product_quantity}'></td>
+                        <td>$total</td>
+                        <td><button name='update' class='btn btn-success'>Update</button></td>
+                        <td><button name='delete' class='btn btn-danger'>Delete</button></td>
+                        <td><input type='submit' name='addOrder' class='btn btn-success text-white  w-100' value = 'Order'></td>
+                    </tr>
+                    <input type='hidden' name='product_id' value='{$product_id}'>
+                </form>
+            ";
+        }
+    } else {
+        header('location:login/login.php'); // Redirect to login page if user is not logged in
+    }
+
+    $conn->close();
+?>
+
+                 <!-- <?php
                         
                         $total = 0;
                         $ttotal = 0;
@@ -55,7 +101,7 @@ include("header.php");
                                <td>$total</td>
                                <td><button name='update' class='btn btn-warning'>Update</button></td>
                                <td><button name= 'delete' class='btn btn-danger'>Delete</button></td>
-                               <td><input type='submit' name='addOrder' class='btn btn-success text-white  w-100' value = 'Order'>td>
+                               <td><input type='submit' name='addOrder' class='btn btn-success text-white  w-100' value = 'Order'></td>
                                <input type ='hidden' name='item' value = '$value[product_name]'> 
                                 
                                </tr>
@@ -64,7 +110,7 @@ include("header.php");
                                 
                         }
                     }
-                        ?>
+                        ?>-->
                     </tbody>
                 </table>
             </div>
