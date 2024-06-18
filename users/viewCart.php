@@ -65,11 +65,13 @@ include("header.php");
                         <td><input type='text' name='pprice' value='{$product_price}' readonly></td>
                         <td><input type='text' name='product_quantity' value='{$product_quantity}'></td>
                         <td>$total</td>
-                        <td><button name='update' class='btn btn-success'>Update</button></td>
+                        <td><button name='update' class='btn btn-warning'>Update</button></td>
                         <td><button name='delete' class='btn btn-danger'>Delete</button></td>
                         <td><input type='submit' name='addOrder' class='btn btn-success text-white  w-100' value = 'Order'></td>
                     </tr>
                     <input type='hidden' name='product_id' value='{$product_id}'>
+                    <input type ='hidden' name='item' value = '{$product_name}'> 
+
                 </form>
             ";
         }

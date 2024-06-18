@@ -42,22 +42,28 @@ if (isset($_SESSION['user'])){
 
     //delete product
     if(isset($_POST['delete'])){
+        $item = $_POST['item'];
+        $product_id = $_POST['product_id'];
         foreach ($_SESSION['cart'] as $key => $value) {
-            if($value['product_name'] === $_POST['item']){
+            if($value['product_name'] === $item){
                 unset($_SESSION['cart'][$key]);
                 $_SESSION['cart'] = array_values($_SESSION['cart']);
-                // $query = "DELETE FROM cart WHERE user_id = '$user_id' AND product_name = '".$_POST['item']."'";
-                // mysqli_query($conn, $query);
+                $query = "DELETE FROM cart WHERE user_id = '$user_id' AND product_id = '$product_id'";
+                mysqli_query($conn, $query);
                 header('location:viewCart.php');
             }
         }
     }
+    
 
     //update product
     if(isset($_POST['update'])){
+        echo "I am here";
         $product_name = $_POST['pname'];
         $product_price = $_POST['pprice'];
         $product_quantity = $_POST['product_quantity'];
+        $product_id = $_POST['product_id'];
+        echo $product_id;
         $item = $_POST['item'];
 
         foreach ($_SESSION['cart'] as $key => $value) {
@@ -67,8 +73,8 @@ if (isset($_SESSION['user'])){
                     'product_price' => $product_price,
                     'product_quantity' => $product_quantity
                 );
-                // $query = "UPDATE cart SET product_quantity = '$product_quantity' WHERE user_id = '$user_id' AND product_name = '".$_POST['item']."'";
-                // mysqli_query($conn, $query);
+                $query = "UPDATE cart SET quantity = '$product_quantity' WHERE user_id = '$user_id' AND product_id = '$product_id'";
+                mysqli_query($conn, $query);
                 header('Location: viewCart.php');
                 exit(); // add this to prevent the script from continuing to run after the redirect
             }
