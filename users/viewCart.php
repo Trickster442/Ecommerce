@@ -38,23 +38,25 @@ include("header.php");
     if (isset($_SESSION['user'])) {
         $user_id = $_SESSION['user_id'];
         // Retrieve cart data for this user with product details
-        $query = "SELECT c.product_id, p.product_name, p.price, c.quantity 
+        $query = "SELECT c.product_id, p.product_name, p.price, c.quantity, c.id
                   FROM cart c 
                   INNER JOIN product p ON c.product_id = p.id 
                   WHERE c.user_id = $user_id";
         $result = mysqli_query($conn, $query);
 
         // Display cart data
-        $ttotal = 0; // Total variable initialization
+        $total = 0;
+        $grand_total = 0; // Total price value initialization
         $i = 0; // Counter initialization
         while ($row = mysqli_fetch_assoc($result)) {
             $i++; // Increment counter
+            $cart_id = $row['id'];
             $product_id = $row['product_id'];
             $product_name = $row['product_name'];
             $product_price = $row['price'];
             $product_quantity = $row['quantity'];
             $total = (double)$product_price * (double)$product_quantity;
-            $ttotal += $total; // Accumulate total
+            $grand_total += $total; // Accumulate total
 
             // Displaying the cart items in a form for update/delete
             echo "
@@ -70,6 +72,7 @@ include("header.php");
                         <td><input type='submit' name='addOrder' class='btn btn-success text-white  w-100' value = 'Order'></td>
                     </tr>
                     <input type='hidden' name='product_id' value='{$product_id}'>
+                    <input type='hidden' name='id' value='{$cart_id}'>
                     <input type ='hidden' name='item' value = '{$product_name}'> 
 
                 </form>
@@ -121,7 +124,7 @@ include("header.php");
     <div class="lg-3 text-center">
         <H3>Total</H3>
         <h1 class="bg-success text-black">
-            <?php echo number_format($ttotal,2) ?>
+            <?php echo number_format($grand_total,2) ?>
         </h1>
     </div>
 </body>

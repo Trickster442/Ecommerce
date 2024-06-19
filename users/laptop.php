@@ -22,10 +22,10 @@
 <?php
 include('config.php');
 
-$record = mysqli_query($conn, "SELECT p.*, c.category_name 
+$record = mysqli_query( $conn, "SELECT p.*, c.category_name 
                                FROM product p
                                INNER JOIN category c ON p.category_id = c.id
-                               ");
+                               " );
 
  while($row = mysqli_fetch_array($record)){
 
