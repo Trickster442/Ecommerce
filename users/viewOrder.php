@@ -2,86 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart-Page</title>
+    <title>View Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-
-<?php
-include("header.php");
-?>
 <body>
+    <?php
+    include("header.php"); // Include your header file
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center bg-light mb-5 rounded">
-                <h1 class="text-danger font-weight-700">Orders</h1>
+                <h1 class="text-danger font-weight-700">View Order Details</h1>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row justify-content-around">
-            <div class="col-sm-12 col-md-6 col-lg-9">
-                <table class="table table-bordered text-center ">
-                    <tbody>
-                                            <?php
-    if (isset($_SESSION['user'])) {
-        $user_id = $_SESSION['user_id'];
-        // Retrieve cart data for this user with product details
-        $query = "SELECT c.product_id, p.product_name, p.price, c.quantity 
-                  FROM cart c 
-                  INNER JOIN product p ON c.product_id = p.id 
-                  WHERE c.user_id = $user_id";
-        $result = mysqli_query($conn, $query);
+    <div class="container">
+        <?php
+        // Assuming $conn is your database connection object
+        if (isset($_SESSION['user'])) {
+            $user_id = $_SESSION['user_id'];
+            // Example order_id; replace with actual value or retrieve dynamically
+            $order_id = 1;
 
-        // Display cart data
-        $total = 0;
-        $grand_total = 0; // Total price value initialization
-        $i = 0; // Counter initialization
-        while ($row = mysqli_fetch_assoc($result)) {
-            $i++; // Increment counter
-            $product_id = $row['product_id'];
-            $product_name = $row['product_name'];
-            $product_price = $row['price'];
-            $product_quantity = $row['quantity'];
-            $total = (double)$product_price * (double)$product_quantity;
-            $grand_total += $total; // Accumulate total
+            // SQL query to fetch order details with product information
+            $query = "SELECT o.cart_id, c.product_id, p.product_name, p.price, c.quantity 
+                      FROM `orders` o 
+                      INNER JOIN cart c ON o.cart_id = c.id 
+                      INNER JOIN product p ON c.product_id = p.id
+                      WHERE o.user_id = $user_id";
+            $result = mysqli_query($conn, $query);
 
-            // Displaying the cart items in a form for update/delete
+            // Display order data
+            $grand_total = 0;
+            while ($row = mysqli_fetch_assoc($result)) {
+                $product_name = $row['product_name'];
+                $product_price = $row['price'];
+                $product_quantity = $row['quantity'];
+                $total = $product_price * $product_quantity;
+                $grand_total += $total;
+
+                // Displaying the order items in a structured format
+                echo "
+                    <div class='card mb-3'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>Product Name: {$product_name}</h5>
+                            <p class='card-text'>Price: {$product_price}</p>
+                            <p class='card-text'>Quantity: {$product_quantity}</p>
+                            <p class='card-text'>Total: {$total}</p>
+                        </div>
+                    </div>
+                ";
+            }
+
+            // Display total outside the loop
             echo "
-                <form action='insertcart.php' method='POST'>
-                    <tr>
-                        <td>{$i}</td>
-                        <td><input type='text' name='pname' value='{$product_name}' readonly></td>
-                        <td><input type='text' name='pprice' value='{$product_price}' readonly></td>
-                        <td><input type='text' name='product_quantity' value='{$product_quantity}'></td>
-                        <td>$total</td>
-                        <td><button name='update' class='btn btn-warning'>Update</button></td>
-                        <td><button name='delete' class='btn btn-danger'>Delete</button></td>
-                        <td><input type='submit' name='addOrder' class='btn btn-success text-white  w-100' value = 'Order'></td>
-                    </tr>
-                    <input type='hidden' name='product_id' value='{$product_id}'>
-                    <input type ='hidden' name='item' value = '{$product_name}'> 
-
-                </form>
+                <div class='text-center'>
+                    <h3>Total</h3>
+                    <h1 class='bg-success text-black'>
+                        " . number_format($grand_total, 2) . "
+                    </h1>
+                </div>
             ";
+        } else {
+            header('location:login/login.php'); // Redirect to login page if user is not logged in
         }
-    } else {
-        header('location:login/login.php'); // Redirect to login page if user is not logged in
-    }
-
-    $conn->close();
-?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="lg-3 text-center">
-        <H3>Total</H3>
-        <h1 class="bg-success text-black">
-            <?php echo number_format($ttotal,2) ?>
-        </h1>
+        mysqli_close($conn); // Close database connection
+        ?>
     </div>
 </body>
 </html>

@@ -91,39 +91,20 @@ if (isset($_SESSION['user'])){
     
 
     if(isset($_POST['addOrder'])){
+        #echo "I am here";
+        $id = $_POST['id'];
+        #echo $id;
         $product_name = $_POST['pname'];
         $product_price = $_POST['pprice'];
         $product_quantity = $_POST['product_quantity'];
-       
-        if(!isset($_SESSION['cart'])){
-            $_SESSION['cart'] = array();
-        }
-
-        $check_duplicate = array_column($_SESSION['cart'], 'product_name');
-        if(in_array($product_name, $check_duplicate)){
-            echo"
-                <script>
-                alert('Product already added');
-                window.location.href = 'index.php';
-                </script>
-            ";
-        }
-        else{
-            $_SESSION['cart'][] = array('product_name' => $product_name, 'product_price' => $product_price, 'product_quantity' => $product_quantity);
-            $total  = (double) $product_price * (double) $product_quantity;
-            $query = " SELECT id FROM product WHERE `product_name` = '$product_name'";
-            $result = mysqli_query($conn, $query);
-            if($row = mysqli_fetch_assoc($result)) {
-        $product_id = $row['id']; // Assign the fetched category ID
-    }       else {
-        // Category not found, handle the error or provide a default category ID
-        $product_cat = 1; // Default category ID (you can change this to your specific requirement)
-    }
-            $query = " INSERT INTO order (user_id, product_id, total_price) VALUES ('$user_id', '$product_id', '$total')";
+        $product_id = $_POST['product_id'];
+        #echo $product_id;
+        $total  = (double) $product_price * (double) $product_quantity;
+    
+            $query = " INSERT INTO orders (user_id, total_amount, cart_id) VALUES ('$user_id', '$total', $id)";
             mysqli_query($conn, $query);
             header('location:viewOrder.php');
             exit(); // add this to prevent the script from continuing to run after the redirect
-        }
     }
 }
 else{
