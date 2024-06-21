@@ -1,108 +1,132 @@
 /* Global Styles */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #333333;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333333;
+  display: flex; /* Center the form vertically and horizontally */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Make the body full height */
+  margin: 0;
+}
+
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #444444;
+  border: 1px solid #cccccc;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effects */
+}
+
+form:hover {
+  transform: scale(1.05); /* Scale up on hover */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Add subtle hover effect */
+}
+
+/* Top Section */
+
+.top {
+  color: #cccccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.top h1 {
+  color: #cccccc;
+  margin: 0;
+}
+
+/* Form Fields */
+
+.email,.password {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #cccccc;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  background-color: #444444;
+  color: #cccccc;
+  transition: border-color 0.3s ease; /* Add transition effect to border color */
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  border-color: #555555; /* Darker border on focus */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Add subtle focus effect */
+}
+
+/* Button */
+
+.upload {
+  background-color: #cacac6;
+  color: #444444;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease; /* Add transition effect to background color */
+}
+
+.upload:hover {
+  background-color: #555555;
+  color: aquamarine;
+}
+
+.upload:active {
+  background-color: #333333;
+  color: #cccccc;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Add subtle active effect */
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
   form {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #444444;
-    border: 1px solid #cccccc;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    max-width: 250px;
   }
-  
-  /* Top Section */
-  
-  .top {
-    color: #cccccc;
-    padding: 10px;
-    text-align: center;
+ .email,.password {
+    margin-bottom: 15px;
   }
-  
-  .top h1 {
-    color: #cccccc;
-    margin: 0;
-  }
-  
-  /* Form Fields */
-  
-  .email, .password {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-    color: #cccccc;
-  }
-  
   input[type="text"], input[type="password"] {
-    width: 100%;
-    height: 40px;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    background-color: #444444;
-    color: #cccccc;
+    height: 35px;
   }
-  
-  /* Button */
-  
-  .upload {
-    background-color: #cacac6;
-    color: #444444;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 10px;
+ .upload {
+    padding: 8px 15px;
+    font-size: 14px;
   }
-  
-  .upload:hover {
-    background-color: #555555;
-    color: aquamarine;
+}
+
+@media (max-width: 480px) {
+  form {
+    max-width: 200px;
   }
-  
-  /* Responsive Styles */
-  
-  @media (max-width: 768px) {
-    form {
-      max-width: 250px;
-    }
-    .email, .password {
-      margin-bottom: 15px;
-    }
-    input[type="text"], input[type="password"] {
-      height: 35px;
-    }
-    .upload {
-      padding: 8px 15px;
-      font-size: 14px;
-    }
+ .email,.password {
+    margin-bottom: 10px;
   }
-  
-  @media (max-width: 480px) {
-    form {
-      max-width: 200px;
-    }
-    .email, .password {
-      margin-bottom: 10px;
-    }
-    input[type="text"], input[type="password"] {
-      height: 30px;
-    }
-    .upload {
-      padding: 6px 12px;
-      font-size: 12px;
-    }
+  input[type="text"], input[type="password"] {
+    height: 30px;
   }
+ .upload {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

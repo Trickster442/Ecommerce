@@ -1,4 +1,3 @@
-/* CSS Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,194 +6,161 @@
 
 body {
   font-family: Arial, sans-serif;
-  justify-content: center;
-  align-items: center;
-  background-color: #333333;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+  background-color: #f7f7f7; /* light gray background */
+  color: #333; /* dark gray text */
 }
+
+
+
+/* Form Styles */
 
 form {
-  background-color: #444444;
-  padding: 1.5rem;
-  border-radius: 20px;
-  border: 1px solid #cccccc;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  width: 100%;
-  margin-top: 2%;
   max-width: 500px;
-}
-
-.top {
-  color: #cccccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.top p {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #cccccc;
+  margin: 20px;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  float: left; /* make form float left */
 }
 
 label {
   display: block;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #cccccc;
+  margin-bottom: 10px;
+  color: #666; /* dark gray label text */
 }
 
-input[type="text"],
-input[type="file"],
-select {
+input[type="text"], input[type="file"], select {
   width: 100%;
-  padding: 0.3rem;
-  font-size: 1.2rem;
-  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
-  margin-bottom: 1rem;
-  background-color: #444444;
-  color: #cccccc;
+  background-color: #fff; /* white input background */
+  color: #333; /* dark gray input text */
 }
 
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'><polygon points='0,0 14,0 7,8'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1rem;
-  padding-right: 1.5rem;
-}
-
-.upload {
-  width: 100%;
-  padding: 0.3rem;
-  font-size: 1.2rem;
-  background-color: #cacac6;
-  color: #444444;
+input[type="submit"] {
+  background-color: #34C759; /* greenish background */
+  color: #fff;
+  padding: 15px 30px; /* increased padding to make the button larger */
   border: none;
-  border-radius: 10px;
+  border-radius: 10px; /* increased border radius to make the button more rounded */
   cursor: pointer;
+  font-size: 18px; /* increased font size to make the button text larger */
 }
 
-.upload:hover {
-  background-color: #555555;
-    color: aquamarine;
+input[type="submit"]:hover {
+  background-color: #2E865F; /* darker greenish on hover */
 }
 
-@media (max-width: 768px) {
-  form {
-    padding: 0.8rem;
-  }
+/* Table Styles */
 
-  .top p {
-    font-size: 1.2rem;
-  }
-
-  label,
-  input[type="text"],
-  input[type="file"],
-  select {
-    padding: 0.3rem;
-    font-size: 1rem;
-  }
-
-  .upload {
-    padding: 0.3rem;
-    font-size: 1rem;
-  }
-}
-
-/* Table section */
 .table-section {
-  margin-top: 2rem;
-  overflow-y: auto;
-  max-height: 400px;
+  max-width: 900px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  float: left; /* make table float left */
+  overflow-x: hidden; /* hide horizontal scrollbar */
+  overflow-y: auto; /* show vertical scrollbar */
+  max-height: 500px; /* set a maximum height for the table */
 }
 
 table {
-  width: 70vw;
+  width: 100%;
   border-collapse: collapse;
+  font-size: 18px;
 }
 
-th,
-td {
-  padding: 1rem;
-  border: 1px solid #ccc;
+th, td {
+  border: 1px solid #ddd;
+  padding: 18px;
   text-align: left;
+  color: #333; /* dark gray table text */
 }
 
 th {
-  background-color: #444444;
-  font-weight: bold;
-  font-size: large;
+  background-color: #f0f0f0; /* light gray header */
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-tr{
-  background-color: #252222;
-  color: #cccccc;
+td img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
-tr:hover {
-  background-color: #ddd;
-  color: #252222;
+.delete,.update {
+  text-align: center;
 }
 
-/* Responsive CSS */
-@media (max-width: 768px) {
-  table,
-  th,
-  td {
-    font-size: 0.9rem;
+.delete a {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: red; /* blue background */
+  color: white; /* white text */
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.update a {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: orange; /* blue background */
+  color: black; /* white text */
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+.delete a:hover,.update a:hover {
+  background-color: #23527c; /* darker blue on hover */
+}
+
+/* Clear floats */
+
+.clearfix {
+  clear: both;
+}
+
+/* Responsive Styles */
+
+/* For screens smaller than 768px (e.g. tablets and mobile devices) */
+@media only screen and (max-width: 768px) {
+  form {
+    max-width: 300px;
+  }
+.table-section {
+    max-width: 400px;
+  }
+  table {
+    font-size: 14px;
+  }
+  th, td {
+    padding: 5px;
   }
 }
 
-
-.delete {
-  background-color: #FF0000; /* Red background color */
-  border-radius: 10px;
-  padding: 10px 20px;
-  text-align: center;
-  display: inline-block;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.2); /* Shadow effect */
-
-}
-.delete a{
-  text-decoration: none;
-  color: #FFFFFF;
-  font-weight: 600;
-}
-
-.update {
-  background-color: #ffa319; /* Blue background color */
-  border-radius: 10px;
-  padding: 10px 20px;
-  text-align: center;
-  display: inline-block;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.2); /* Shadow effect */
-}
-.update a{
-  text-decoration: none;
-  color: #000000;
-  font-weight: 600;
-}
-.delete:hover,.update:hover {
-  background-color: rgb(24, 128, 50); /* Light gray background color on hover */
-}
-
-.delete:active,.update:active {
-  background-color: #AAAAAA; /* Dark gray background color on active */
-  box-shadow: 0px 0px 2px rgba(0,0,0,0.1); /* Less shadow on active */
-}
-
-@media (max-width: 600px) {
- .delete,.update {
-    padding: 10px 10px;
-    font-size: 14px;
+/* For screens smaller than 480px (e.g. smaller mobile devices) */
+@media only screen and (max-width: 480px) {
+  form {
+    max-width: 300px;
+  }
+.table-section {
+    max-width: 400px;
+  }
+  table {
+    font-size: 12px;
+  }
+  th, td {
+    padding: 2px;
   }
 }

@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #f0f0f0; /* light gray/white background */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3498db; /* blueish color */
+  text-decoration: none;
+}
+
+.Logo a:hover {
+  color: #2980b9; /* darker blueish color on hover */
+}
+
+.navigation-link {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navigation-link li {
+  margin-right: 20px;
+}
+
+.navigation-link a {
+  color: #3498db; /* blueish color */
+  text-decoration: none;
+}
+
+.navigation-link a:hover {
+  color: #2980b9; /* darker blueish color on hover */
+}
+
+/* Add some styling to the username display */
+.navigation-link li:first-child {
+  font-weight: bold;
+  color: #666; /* darker gray color */
+}
+
+.navigation-link li:first-child a {
+  color: #666; /* darker gray color */
+}
+
+.navigation-link li:first-child a:hover {
+  color: #444; /* even darker gray color on hover */
+}
+
+/* Responsive styles */
+
+/* For screens smaller than 768px (e.g. tablets and mobile devices) */
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+ .Logo {
+    margin-bottom: 10px;
+  }
+ .navigation-link {
+    flex-direction: column;
+  }
+ .navigation-link li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* For screens smaller than 480px (e.g. smaller mobile devices) */
+@media only screen and (max-width: 480px) {
+ .Logo {
+    font-size: 18px;
+  }
+ .navigation-link li {
+    margin-bottom: 5px;
+  }
+}
