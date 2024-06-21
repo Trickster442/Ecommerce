@@ -22,7 +22,7 @@ if (isset($_POST['update'])) {
         exit;
     }
 
-    header("location:category.php");
+    header("location:categories.php");
     exit;
 }
 ?>

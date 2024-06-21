@@ -14,6 +14,7 @@ if(isset($_POST['submit'])) {
 
     // Inserting category
     mysqli_query($conn, "INSERT INTO `category`(`category_name`, `status`) VALUES ('$category_name','$status')");
+    header('location:categories.php');
 }
 
 

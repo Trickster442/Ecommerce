@@ -37,7 +37,7 @@ if(isset($_POST['submit'])) {
     echo "
     <script>
     alert('Created successfully');
-    window.location.href='../isAdmin.php';
+    window.location.href='products.php';
     </script>
     ";
 }

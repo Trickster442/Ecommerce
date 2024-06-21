@@ -39,14 +39,14 @@ input[type="text"], input[type="file"], select {
   color: #333; /* dark gray input text */
 }
 
-input[type="submit"] {
+button[type="submit"] {
   background-color: #34C759; /* greenish background */
   color: #fff;
-  padding: 15px 30px; /* increased padding to make the button larger */
+  padding: 12px 25px; /* increased padding to make the button larger */
   border: none;
   border-radius: 10px; /* increased border radius to make the button more rounded */
   cursor: pointer;
-  font-size: 18px; /* increased font size to make the button text larger */
+  font-size: 14px; /* increased font size to make the button text larger */
 }
 
 input[type="submit"]:hover {

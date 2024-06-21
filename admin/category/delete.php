@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
         echo"
         <script>
         alert('Deleted successfully');
-        window.location.href='../isAdmin.php';
+        window.location.href='categories.php';
         </script>
         ";
     } else {
