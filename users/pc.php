@@ -36,7 +36,7 @@ $record = mysqli_query($conn, "SELECT p.*, c.category_name
     <div class='col-md-6 col-lg-4 m-auto mb-3 '>
     <form action = 'insertcart.php' method = 'POST'>
     <div class='card m-auto' style='width: 18rem;'>
-  <img src='../admin/product/$row[product_image]' class='card-img-top' alt='...'>
+  <img src='../admin/product/$row[product_image]' class='card-img-top' alt='...' style='max-width: 100%; height: 180px; object-fit: cover;'>
   <div class='card-body text-center '>
     <h5 class='card-title text-center fs-4 fw-bold'>$row[product_name]</h5>
     <p class='card-text text-center fs-4 fw-bold'>RS: $row[price]</p>
