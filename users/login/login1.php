@@ -2,7 +2,9 @@
 include("config.php");
 
 $name = $_POST['name'];
-$password = $_POST['password'];
+$password = ($_POST['password']);
+echo $name;
+echo $password;
 
 $result = mysqli_query($conn," SELECT * FROM `users` WHERE (`name` = '$name' OR `email` = '$name' ) AND `password` = '$password' AND `is_admin` is NULL");
 

@@ -17,7 +17,7 @@
     
 <div class="row">
 
-
+ 
     <H1 class="text-black font-monospace text-center my-3 fw-bold">Home</H1>
 <?php
 include('config.php');

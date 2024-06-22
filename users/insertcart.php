@@ -78,6 +78,7 @@ if (isset($_SESSION['user'])){
         $product_id = $_POST['product_id'];
         echo $product_id;
         $item = $_POST['item'];
+        
             $update_query = " UPDATE `cart` SET `quantity`='$product_quantity' WHERE id = $id ";
             echo $update_query ; 
             if (!mysqli_query($conn, $update_query)) {

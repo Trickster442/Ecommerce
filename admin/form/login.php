@@ -22,6 +22,7 @@
                         <input type="password" id="password" name="password" required></div>
                     </div>
                     <button type="submit" class="upload">Login</button>
+                    <button class="homepage"><a href="../../users/index.php">Home</a></button>
                 </form>
 </body>
 </html>

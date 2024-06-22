@@ -117,12 +117,13 @@ if (isset($_GET['id'])) {
             $result = $conn->query($sql);
             while ($row = $result->fetch_assoc()) {
                 echo "<option value='{$row['category_name']}'>{$row['category_name']}</option>";
-            }
+            } 
+
           ?>
-        </select>
+        </select> 
     </div>
 
-    <input type="hidden" name="id" value="<?php echo $id?>">
+    <input type="hidden" name="id" value="<?php echo  $id?>">
 
     <button name="update" type="submit" class="upload">Update</button>
 </form>

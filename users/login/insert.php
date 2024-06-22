@@ -5,7 +5,7 @@ if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone_number = $_POST['pNumber'];
-    $password = $_POST['password'];
+    $password = ($_POST['password']);
 
     $Dup_email = mysqli_query($conn," SELECT * FROM `users` WHERE email = '$email' ");
     $Dup_number = mysqli_query($conn," SELECT * FROM `users` WHERE phone_number = '$phone_number' ");

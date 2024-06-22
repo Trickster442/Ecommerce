@@ -35,6 +35,9 @@
                     <div class="mb-3">
                         <button class="w-100 bg-danger fs-4 text-black"><a href="login.php" class="text-decoration-none text-black">Login</a></button>
                     </div>
+                    <div class="mb-3">
+                        <button name='submit' class="w-100 bg-success fs-4 text-white"><a href="../index.php" class="text-decoration-none text-white">Home Page</a></button>
+                    </div>
                 </form>
             </div>
         </div>

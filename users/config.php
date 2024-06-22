@@ -2,6 +2,6 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "e_commerce";
+$dbname = "23189646";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);

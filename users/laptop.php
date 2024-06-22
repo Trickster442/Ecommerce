@@ -56,5 +56,8 @@ $record = mysqli_query( $conn, "SELECT p.*, c.category_name
 </div>
 </div>
 </div>
+<?php
+include('footer.php');
+?>
 </body>
 </html>
